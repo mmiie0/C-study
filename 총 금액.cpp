@@ -15,5 +15,5 @@ int main() {
 	int total_money;
 	total_money = total(&bank[0], &bank[1], &bank[2], &bank[3]); //totalÇÔ¼ö È£Ãâ
 
-	cout<<"총 : "<<total_money;
+	cout<<"총 금액 : "<<total_money;
 }
