@@ -13,7 +13,7 @@ int total(int* a, int* b, int* c, int* d) {
 int main() {
 	
 	int total_money;
-	total_money = total(&bank[0], &bank[1], &bank[2], &bank[3]); //totalÇÔ¼ö È£Ãâ
+	total_money = total(&bank[0], &bank[1], &bank[2], &bank[3]); //totalÃ‡Ã”Â¼Ã¶ ÃˆÂ£ÃƒÃ¢
 
-	cout<<"ÃÑ ÀÚ»ê: "<<total_money;
+	cout<<"ì´ : "<<total_money;
 }
