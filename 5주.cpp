@@ -1,26 +1,27 @@
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-class Member {//·Î±×ÀÎ ±¸Çö ÄÚµå
+class Member {//ë¡œê·¸ì¸ êµ¬í˜„ ì½”ë“œ
 	int N;
 	string Name;
 	string ID;
 	string PW;
 
 public:
-	//¸®ÅÏÇÔ¼ö
+	//ë¦¬í„´í•¨ìˆ˜
 	string getName();
 	string getID();
 	string getPassword();
 
-	//ÀÔ·Â ¹Ş´Â ÇÔ¼ö
+	//ì…ë ¥ ë°›ëŠ” í•¨ìˆ˜
 	void setName(string name);
 	void setID(string Id);
 	void setPassword(string pw);
 };
 
 
-class Cart {//¸ŞÀÎ ±¸Çö
+class Cart {//ë©”ì¸ êµ¬í˜„
 	int number;
 	char classname[20];
 	char classNum[20];
@@ -30,118 +31,117 @@ public:
 	void bag_course(int classnum);
 	void put_bag();
 	void print();
-	
 
-	string getName();//ÀÌ¸§ °ª ¸®ÅÏ
-	string getID();//ID °ª ¸®ÅÏ
+	string getName();//ì´ë¦„ ê°’ ë¦¬í„´
+	string getID();//ID ê°’ ë¦¬í„´
 };
 
 
-string Member::getName() { //name °ª ¸®ÅÏ
+string Member::getName() { //name ê°’ ë¦¬í„´
 	return Name;
 }
-string Member::getID() { //ID °ª ¸®ÅÏ
+string Member::getID() { //ID ê°’ ë¦¬í„´
 	return ID;
 }
-string Member::getPassword() { //ID °ª ¸®ÅÏ
+string Member::getPassword() { //ID ê°’ ë¦¬í„´
 	return PW;
 }
 
 
-	//ÀÔ·Â¹Ş´Â ÇÔ¼ö
+	//ì…ë ¥ë°›ëŠ” í•¨ìˆ˜
 void Member:: setName(string name) {
-		cout << "ÀÌ¸§: " << endl;
+		cout << "ì´ë¦„: " << endl;
 		cin >> name;
 		Name = name;
 	}
 void Member:: setID(string Id) {
-		cout << "¾ÆÀÌµğ: " << endl;
+		cout << "ì•„ì´ë””: " << endl;
 		cin >> Id;
 		ID = Id;
 	}
 void Member:: setPassword(string pw) {
-		cout << "ºñ¹Ğ¹øÈ£: " << endl;
+		cout << "ë¹„ë°€ë²ˆí˜¸: " << endl;
 		cin >> pw;
 		PW = pw;
 	}
 
 
-//2¹ø °­ÀÇ ´ã±â ±â´É ÇÔ¼ö
+//2ë²ˆ ê°•ì˜ ë‹´ê¸° ê¸°ëŠ¥ í•¨ìˆ˜
 void Cart::bag_course(int classnum) {
-	cout << "Ãß°¡ÇÒ ÇĞ¼ö ¹øÈ£>>";
+	cout << "ì¶”ê°€í•  í•™ìˆ˜ ë²ˆí˜¸>>";
 	cin >> classnum;
 	classNum[20] = classnum;
 
-	    //¹øÈ£ ÀÏÄ¡ÇÏ¸é ´ã±â
+	    //ë²ˆí˜¸ ì¼ì¹˜í•˜ë©´ ë‹´ê¸°
 	if (classNum == "0001") {
 		mybag[0].number = 1;
-		mybag[0].classname = "c++ÇÁ·Î±×·¡¹Ö";
+		mybag[0].classname = "c++í”„ë¡œê·¸ë˜ë°";
 		mybag[0].classNum = "0001";
 	}
 	if (classNum == "0002") {
-		mybag[1].number = 2;
-		mybag[1].classname = "¸®´ª½º ÇÁ·Î±×·¡¹Ö";
+		mybag[1].number =2;
+		mybag[1].classname = "ë¦¬ëˆ…ìŠ¤ í”„ë¡œê·¸ë˜ë°";
 		mybag[1].classNum = "0002";
 	}
 	if (classNum == "0003") {
-		mybag[2].number = 3;
-		mybag[2].classname = "¸®¹ö½Ì";
-		mybag[2].classNum = "0003";
+		mybag[0].number = 3;
+		mybag[0].classname = "ë¦¬ë²„ì‹±";
+		mybag[0].classNum = "0003";
 	}
-		//ÀÌ¹Ì ÀúÀå
+		//ì´ë¯¸ ì €ì¥
 	int i = 0;
 	for (i=0;i<3;i++)
-	if (mybag[i].number==1|| mybag[i].number == 2|| mybag[i].number == 3){
-		cout << "ÀÌ¹Ì myÀå¹Ù±¸´Ï¿¡ ÀÖ½À´Ï´Ù.";
+	if (mybag[i].number==1|| mybag[i].number == 2|| mybag[i].number == 3) {
+		cout << "ì´ë¯¸ myì¥ë°”êµ¬ë‹ˆì— ìˆìŠµë‹ˆë‹¤.";
 		switch (mainscreen()); 
 	}
 
-	else //Àß¸ø ÀÔ·Â-> ¸ŞÀÎÈ­¸é ´Ù½Ã Ãâ·Â
+	else //ì˜ëª» ì…ë ¥-> ë©”ì¸í™”ë©´ ë‹¤ì‹œ ì¶œë ¥
 	{
 		switch (mainscreen());
 	}
 }
 
 
-//3¹ø ¼ö°­ ½ÅÃ» È®ÀÎ ±â´É ÇÔ¼ö
+//3ë²ˆ ìˆ˜ê°• ì‹ ì²­ í™•ì¸ ê¸°ëŠ¥ í•¨ìˆ˜
 void Cart::put_bag() {
-		//my Àå¹Ù±¸´Ï Ãâ·Â
+		//my ì¥ë°”êµ¬ë‹ˆ ì¶œë ¥
 	int* p;
-	
-	int i = 0;
+	int i;
+	p = mybag[i];
 	for (i = 0; i < 3; i++)
 		cout << p->mybag[i].number << p->mybag[i].classname << p->mybag[i].classnum;
 }
 
-void Cart::print() { //1¹ø Àå¹Ù±¸´Ï ´ã±â ±â´É ÇÔ¼ö·Î °­ÀÇ ¸ñ·ÏÀ» ¹è¿­·Î ¹Ş¾Æ¼­ Ãâ·Â
-	cout << "==========°­ÀÇ¸ñ·Ï==========";
-	int i = 0;
+void Cart::print() { //1ë²ˆ ì¥ë°”êµ¬ë‹ˆ ë‹´ê¸° ê¸°ëŠ¥ í•¨ìˆ˜ë¡œ ê°•ì˜ ëª©ë¡ì„ ë°°ì—´ë¡œ ë°›ì•„ì„œ ì¶œë ¥
+	cout << "==========ê°•ì˜ëª©ë¡==========";
+	
 	mybag[0].number = 1;
-	mybag[0].classname = "c++ÇÁ·Î±×·¡¹Ö";
-	mybag[0].classnum = "0001";
+	mybag[0].classname = "c++í”„ë¡œê·¸ë˜ë°";
+	mybag[0].classNum = "0001";
 	mybag[1].number = 2;
-	mybag[1].classname = "¸®´ª½º ÇÁ·Î±×·¡¹Ö";
-	mybag[1].classnum = "0002";
+	mybag[1].classname = "ë¦¬ëˆ…ìŠ¤ í”„ë¡œê·¸ë˜ë°";
+	mybag[1].classNum = "0002";
 	mybag[2].number = 3;
-	mybag[2].classname = "¸®¹ö½Ì";
-	mybag[2].classnum = "0003";
+	mybag[2].classname = "ë¦¬ë²„ì‹±";
+	mybag[2].classNum = "0003";
 }
 
 
 int main() {
 	while (1) {
 		int num;
-		cout << "----------------¼­¿ï¿©ÀÚ´ëÇĞ±³ Á¾ÇÕÁ¤º¸½Ã½ºÅÛ----------------\n1.È¸¿ø°¡ÀÔ\n2.·Î±×ÀÎ\n\n¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä>>";
-		cout << "¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä>>";
+		cout << "----------------ì„œìš¸ì—¬ìëŒ€í•™êµ ì¢…í•©ì •ë³´ì‹œìŠ¤í…œ----------------\n1.íšŒì›ê°€ì…\n2.ë¡œê·¸ì¸\n\në²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”>>";
+		cout << "ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”>>";
 		cin >> num;
 
-		if (num == 1) {//È¸¿ø°¡ÀÔ
+		if (num == 1) { //íšŒì›ê°€ì…
 			string setName();
 			string setID();
 			string setPassword();
-			cout << "===È¸¿ø°¡ÀÔ ¼º°ø===";
+			cout << "===íšŒì›ê°€ì… ì„±ê³µ===";
 		}
-		if (num == 2) {//·Î±×ÀÎ
+		if (num == 2) { //ë¡œê·¸ì¸
 			string setID();
 			string setPassword();
 			string setName();
@@ -149,24 +149,24 @@ int main() {
 			string getId();
 			string getName();
 			if (setID() == getId() && setPassword() == getPassword()) {
-				cout << getName() << "´Ô È¯¿µÇÕ´Ï´Ù.";
+				cout << getName() << "ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.";
 				break;
 			}
 			else {
-				cout << "¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.";
+				cout << "ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.";
 			}
 		}
 		else {
-			cout << "1 ¶Ç´Â 2¸¸ ÀÔ·ÂÇØÁÖ¼¼¿ä";
+			cout << "1 ë˜ëŠ” 2ë§Œ ì…ë ¥í•´ì£¼ì„¸ìš”";
 		}
 	}
 }
 
-	//¸ŞÀÎÈ­¸é
+	//ë©”ì¸í™”ë©´
 int mainscreen() {
 	int n;
-	cout << "1.Àå¹Ù±¸´Ï\\n2.°­ÀÇ ´ã±â\n3.¼ö°­ ½ÅÃ» È®ÀÎ\n4.·Î±×¾Æ¿ô";
-	cout << "¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä>>";
+	cout << "1.ì¥ë°”êµ¬ë‹ˆ\\n2.ê°•ì˜ ë‹´ê¸°\n3.ìˆ˜ê°• ì‹ ì²­ í™•ì¸\n4.ë¡œê·¸ì•„ì›ƒ";
+	cout << "ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”>>";
 	cin >> n;
 
 	if (n == 1) {
@@ -179,7 +179,7 @@ int mainscreen() {
 		int put_bag();
 	}
 	if (n == 4) {
-		cout << "------------·Î±×¾Æ¿ô----------\n·Î±×¾Æ¿ôµÇ¾ú½À´Ï´Ù. ¾È³çÈ÷°¡¼¼¿ä.";
+		cout << "------------ë¡œê·¸ì•„ì›ƒ----------\në¡œê·¸ì•„ì›ƒë˜ì—ˆìŠµë‹ˆë‹¤. ì•ˆë…•íˆê°€ì„¸ìš”.";
 	}
 
 
