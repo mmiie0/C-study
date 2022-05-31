@@ -76,40 +76,44 @@ void Cart::bag_course() {
 				mybag[i] = "c++ 프로그래밍";//저장
 				break;
 			}
-			else if (mybag[i] == "c++ 프로그래밍")
+			else if (mybag[i] == "c++ 프로그래밍") {
 				cout << "이미 MY 장바구니에 담겨 있습니다." << endl;
+				break;
+			}
 		}
-		}
+	}
 	else if (num == "0002")
 		for (int i = 0; i < 3; i++) {
 			if (mybag[i] == "\0") { //mybag에 없으면
 				mybag[i] = "리눅스 프로그래밍";//저장
 				break;
 			}
-			else if (mybag[i] == "리눅스 프로그래밍")
+			else if (mybag[i] == "리눅스 프로그래밍") {
 				cout << "이미 MY 장바구니에 담겨 있습니다." << endl;
+				break;
+			}
 		}
 	else if (num == "0003")
-			for (int i = 0; i < 3; i++) {
-				if (mybag[i] == "\0") { //mybag에 없으면
-					mybag[i] = "리버싱";//저장
-					break;
-				}
-				else if (mybag[i] == "리버싱") {
-					cout << "이미 MY 장바구니에 담겨 있습니다." << endl;
-					break;
-				}
+		for (int i = 0; i < 3; i++) {
+			if (mybag[i] == "\0") { //mybag에 없으면
+				mybag[i] = "리버싱";//저장
+				break;
 			}
-	
+			else if (mybag[i] == "리버싱") {
+				cout << "이미 MY 장바구니에 담겨 있습니다." << endl;
+				break;
+			}
+		}
+
 }
 
 
 //3번 수강 신청 확인 기능 함수
 void Cart::put_bag() { //내가 고른 강의 이름
-	cout<<"==========My 장바구니=========="<<endl;
+	cout << "==========My 장바구니==========" << endl;
 	for (int i = 0; i < 3; i++)
-		cout << i+1 << ". " << mybag[i] << endl;
-	
+		cout << i + 1 << ". " << mybag[i] << endl;
+
 }
 
 void Cart::print() {
@@ -163,13 +167,13 @@ int main() {
 				cout << "\n===로그인 성공===\n" << p->getName(name) << "님 환영합니다.";
 
 				int n = 0;
+				Cart pt;
+				Cart* p;
+				p = &pt;
 
 				while (1) {
 
-					Cart pt;
-					Cart* p;
-					p = &pt;
-
+					
 					cout << "=================" << endl;
 					cout << "1.장바구니\n2.강의 담기\n3.수강 신청 확인\n4.로그아웃";
 					cout << "\n\n번호를 입력하세요>> ";
@@ -179,9 +183,9 @@ int main() {
 						p->print();
 
 					else if (n == 2)
-					p->bag_course();
-				
-				
+						p->bag_course();
+
+
 					else if (n == 3)
 						p->put_bag();
 
