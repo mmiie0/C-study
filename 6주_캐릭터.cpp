@@ -3,60 +3,60 @@
 #include <cstring>
 using namespace std;
 
-class Character { //Character Å¬·¡½º ¼±¾ğ
+class Character { //Character í´ë˜ìŠ¤ ì„ ì–¸
 private:
 	char* name;
 	int age;
 	char* job;
 
 public:
-	Character(const char* name, int age, const char* job); //»ı¼ºÀÚ
-	Character(const Character& character); //º¹»ç »ı¼ºÀÚ
-	~Character(); //¼Ò¸êÀÚ
+	Character(const char* name, int age, const char* job); //ìƒì„±ì
+	Character(const Character& character); //ë³µì‚¬ ìƒì„±ì
+	~Character(); //ì†Œë©¸ì
 	void show() {
-		cout << "******Ä³¸¯ÅÍ Á¤º¸******" << endl;
-		cout << "Ä³¸¯ÅÍ ÀÌ¸§: " << name << endl;
-		cout << "Ä³¸¯ÅÍ ³ªÀÌ: " << age << endl;
-		cout << "Ä³¸¯ÅÍ Á÷¾÷: " << job << "\n\n";
+		cout << "******ìºë¦­í„° ì •ë³´******" << endl;
+		cout << "ìºë¦­í„° ì´ë¦„: " << name << endl;
+		cout << "ìºë¦­í„° ë‚˜ì´: " << age << endl;
+		cout << "ìºë¦­í„° ì§ì—…: " << job << "\n\n";
 	}
 	void charac_change(const char* name, int age, const char* job) {
-		strcpy(this->name, name); //name¿¡ ¹®ÀÚ¿­ º¹»ç
-		this->age = age; //age º¹»ç??
-		strcpy(this->job, job); //job¿¡ ¹®ÀÚ¿­ º¹»ç
+		strcpy(this->name, name); //nameì— ë¬¸ìì—´ ë³µì‚¬
+		this->age = age; //ageê°’ ë³µì‚¬
+		strcpy(this->job, job); //jobì— ë¬¸ìì—´ ë³µì‚¬
 	}
 };
 
-Character::Character(const char* name, int age, const char* job) { //»ı¼ºÀÚ
-	int len_name = strlen(name); //nameÀÇ ¹®ÀÚ °³¼ö
-	this->name = new char[len_name + 1]; //name ¹®ÀÚ¿­ °ø°£ ÇÒ´ç
-	strcpy(this->name, name); //name¿¡ ¹®ÀÚ¿­ º¹»ç
+Character::Character(const char* name, int age, const char* job) { //ìƒì„±ì
+	int len_name = strlen(name); //nameì˜ ë¬¸ì ê°œìˆ˜
+	this->name = new char[len_name + 1]; //name ë¬¸ìì—´ ê³µê°„ í• ë‹¹
+	strcpy(this->name, name); //nameì— ë¬¸ìì—´ ë³µì‚¬
 
-	this->age = age; //age º¹»ç??
+	this->age = age; //ageê°’ ë³µì‚¬
 
-	int len_job = strlen(job); //jobÀÇ ¹®ÀÚ °³¼ö
-	this->job = new char[len_job + 1]; //job ¹®ÀÚ¿­ °ø°£ ÇÒ´ç
-	strcpy(this->job, job); //job¿¡ ¹®ÀÚ¿­ º¹»ç
+	int len_job = strlen(job); //jobì˜ ë¬¸ì ê°œìˆ˜
+	this->job = new char[len_job + 1]; //job ë¬¸ìì—´ ê³µê°„ í• ë‹¹
+	strcpy(this->job, job); //jobì— ë¬¸ìì—´ ë³µì‚¬
 }
  
-Character::Character(const Character& character) { //º¹»ç »ı¼ºÀÚ
-	int len_name = strlen(character.name); //nameÀÇ ¹®ÀÚ °³¼ö
-	this->name = new char[len_name + 1]; //nameÀ» À§ÇÑ °ø°£ ÇÒ´ç
-	strcpy(this->name, character.name); //nameÀÇ ¹®ÀÚ¿­ º¹»ç
+Character::Character(const Character& character) { //ë³µì‚¬ ìƒì„±ì
+	int len_name = strlen(character.name); //nameì˜ ë¬¸ì ê°œìˆ˜
+	this->name = new char[len_name + 1]; //nameì„ ìœ„í•œ ê³µê°„ í• ë‹¹
+	strcpy(this->name, character.name); //nameì˜ ë¬¸ìì—´ ë³µì‚¬
 
-	this->age = character.age; //id°ª º¹»ç??
+	this->age = character.age; //ageê°’ ë³µì‚¬
 
-	int len_job = strlen(character.job); //jobÀÇ ¹®ÀÚ °³¼ö
-	this->job = new char[len_job + 1]; //jobÀ» À§ÇÑ °ø°£ ÇÒ´ç
-	strcpy(this->job, character.job); //jobÀÇ ¹®ÀÚ¿­ º¹»ç
+	int len_job = strlen(character.job); //jobì˜ ë¬¸ì ê°œìˆ˜
+	this->job = new char[len_job + 1]; //jobì„ ìœ„í•œ ê³µê°„ í• ë‹¹
+	strcpy(this->job, character.job); //jobì˜ ë¬¸ìì—´ ë³µì‚¬
 }
 
-/////////////////////ÀÌ ºÎºĞ ÇÊ¿äÇÑ °Ç°¡¿ä??
-Character::~Character() { //¼Ò¸êÀÚ
+/////////////////////ì´ ë¶€ë¶„ í•„ìš”í•œ ê±´ê°€ìš”??
+Character::~Character() { //ì†Œë©¸ì
 	while (1) {
-		if (name) //¸¸ÀÏ name¿¡ µ¿Àû ÇÒ´çµÈ ¹è¿­ÀÌ ÀÖÀ¸¸é
-			delete[] name; //µ¿Àû ÇÒ´ç ¸Ş¸ğ¸® ¼Ò¸ê
-		else if (job) //¸¸ÀÏ job¿¡ µ¿Àû ÇÒ´çµÈ ¹è¿­ÀÌ ÀÖÀ¸¸é
-			delete[] job; //µ¿Àû ÇÒ´ç ¸Ş¸ğ¸® ¼Ò¸ê
+		if (name) //ë§Œì¼ nameì— ë™ì  í• ë‹¹ëœ ë°°ì—´ì´ ìˆìœ¼ë©´
+			delete[] name; //ë™ì  í• ë‹¹ ë©”ëª¨ë¦¬ ì†Œë©¸
+		else if (job) //ë§Œì¼ jobì— ë™ì  í• ë‹¹ëœ ë°°ì—´ì´ ìˆìœ¼ë©´
+			delete[] job; //ë™ì  í• ë‹¹ ë©”ëª¨ë¦¬ ì†Œë©¸
 	}
 }
 
@@ -73,42 +73,42 @@ int main() {
 		int num;
 		Character copy(A);
 
-		cout << endl << "========Ä³¸¯ÅÍ °ü¸®========\n\n";
-		cout << "1. Ä³¸¯ÅÍ »ı¼º" << endl;
-		cout << "2. Ä³¸¯ÅÍ º¹»ç" << endl;
-		cout << "3. Ä³¸¯ÅÍ Á¤º¸ È®ÀÎ" << endl;
-		cout << "4. Ä³¸¯ÅÍ Á¤º¸ ¼öÁ¤" << endl;
-		cout << "5. Á¾·á" << endl;
-		cout << "\n¹øÈ£¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä: ";
+		cout << endl << "========ìºë¦­í„° ê´€ë¦¬========\n\n";
+		cout << "1. ìºë¦­í„° ìƒì„±" << endl;
+		cout << "2. ìºë¦­í„° ë³µì‚¬" << endl;
+		cout << "3. ìºë¦­í„° ì •ë³´ í™•ì¸" << endl;
+		cout << "4. ìºë¦­í„° ì •ë³´ ìˆ˜ì •" << endl;
+		cout << "5. ì¢…ë£Œ" << endl;
+		cout << "\në²ˆí˜¸ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”: ";
 		cin >> num;
 
-		if (num == 1) { //Ä³¸¯ÅÍ »ı¼º
-			cout << "\n»ı¼ºÇÒ Ä³¸¯ÅÍÀÇ ÀÌ¸§, ³ªÀÌ, Á÷¾÷À» ¼ø¼­´ë·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.(°ø¹éÀ¸·Î ±¸ºĞ)" << endl;
-			cout << "Âü°í»çÇ×: Á÷¾÷ÀÇ Á¾·ù´Â ÀÚÀ¯·Ó°Ô\n--> ";
-			cin >> charac_name >> charac_age >> charac_job; //±×³É ¹Ş¾Ò´õ´Ï µÆ´Ù??
-			cout << "\nÄ³¸¯ÅÍ°¡ »ı¼ºµÇ¾ú½À´Ï´Ù." << endl;
+		if (num == 1) { //ìºë¦­í„° ìƒì„±
+			cout << "\nìƒì„±í•  ìºë¦­í„°ì˜ ì´ë¦„, ë‚˜ì´, ì§ì—…ì„ ìˆœì„œëŒ€ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”.(ê³µë°±ìœ¼ë¡œ êµ¬ë¶„)" << endl;
+			cout << "ì°¸ê³ ì‚¬í•­: ì§ì—…ì˜ ì¢…ë¥˜ëŠ” ììœ ë¡­ê²Œ\n--> ";
+			cin >> charac_name >> charac_age >> charac_job; //ê·¸ëƒ¥ ë°›ì•˜ë”ë‹ˆ ëë‹¤??
+			cout << "\nìºë¦­í„°ê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		}
 
-		if (num == 2) { //Ä³¸¯ÅÍ º¹»ç
+		if (num == 2) { //ìºë¦­í„° ë³µì‚¬
 			Character copy(A);
-			cout << "\nÄ³¸¯ÅÍ°¡ º¹»çµÇ¾ú½À´Ï´Ù." << endl;
+			cout << "\nìºë¦­í„°ê°€ ë³µì‚¬ë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 		}
 
-		if (num == 3) { //Ä³¸¯ÅÍ Á¤º¸ È®ÀÎ
-			A.show(); //»ç¶÷1 Ãâ·Â
+		if (num == 3) { //ìºë¦­í„° ì •ë³´ í™•ì¸
+			A.show(); //ì‚¬ëŒ1 ì¶œë ¥
 			if (charac_name)
-				B.show(); //»ç¶÷2 Ãâ·Â
+				B.show(); //ì‚¬ëŒ2 ì¶œë ¥
 		}
 
-		if (num == 4) { //Ä³¸¯ÅÍ Á¤º¸ ¼öÁ¤
+		if (num == 4) { //ìºë¦­í„° ì •ë³´ ìˆ˜ì •
 			int charac_num;
 
-			cout << "¼öÁ¤ÇÏ°í ½ÍÀº Ä³¸¯ÅÍ¸¦ ¼±ÅÃÇÏ¼¼¿ä.(1 or 2): ";
+			cout << "ìˆ˜ì •í•˜ê³  ì‹¶ì€ ìºë¦­í„°ë¥¼ ì„ íƒí•˜ì„¸ìš”.(1 or 2): ";
 			cin >> charac_num;
-			cout << "¼³Á¤ÇÏ°í ½ÍÀº ÀÌ¸§, ³ªÀÌ, Á÷¾÷À» ÀÔ·ÂÇØÁÖ¼¼¿ä.\n--> ";
+			cout << "ì„¤ì •í•˜ê³  ì‹¶ì€ ì´ë¦„, ë‚˜ì´, ì§ì—…ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.\n--> ";
 
 			if (charac_num == 1) {
-				cin >> charac_name2 >> charac_age2 >> charac_job2; //»õ·Î ÀÔ·Â ¹Ş´Â´Ù
+				cin >> charac_name2 >> charac_age2 >> charac_job2; //ìƒˆë¡œ ì…ë ¥ ë°›ëŠ”ë‹¤
 				A.charac_change(charac_name2, charac_age2, charac_job2);
 			}
 
@@ -116,11 +116,11 @@ int main() {
 				cin >> charac_name2 >> charac_age2 >> charac_job2;
 				B.charac_change(charac_name2, charac_age2, charac_job2);
 			}
-			cout << "\nÁ¤»óÀûÀ¸·Î ¼öÁ¤µÇ¾ú½À´Ï´Ù.\n";
+			cout << "\nì •ìƒì ìœ¼ë¡œ ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.\n";
 		}
 
-		if (num == 5)  { //Á¾·á
-			cout << "Á¾·áµÇ¾ú½À´Ï´Ù." << endl;
+		if (num == 5)  { //ì¢…ë£Œ
+			cout << "ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤." << endl;
 			break;
 		}
 	}
