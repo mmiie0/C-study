@@ -82,6 +82,7 @@ int main() {
 
 	A.charac_make();
 	cout << "\n캐릭터가 생성되었습니다." << endl;
+	A.charac_show();
 
 	Character B(A);
 	cout << "\n캐릭터가 복사되었습니다." << endl;
